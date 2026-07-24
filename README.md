@@ -92,5 +92,9 @@ Data transaksi akan otomatis disimpan ke tabel `transactions` di database.
 ---
 
 ## 👨‍💻 Developer
+- **23523001 - Alma Nurul Salma**: *(PM + Develop Mentor)*
+- **23523228 - Qanzul Arays**: *(Backend + Infrastructure + Admin)*
+- **23523005 - Laudza Muhammad Anwar Lahiz**: *(Develop Student)*
+- **23523147 - Devin Pandya Subarkah**: *(AI Integration)*
 
 > Dibuat untuk keperluan pengembangan sistem kursus berbasis web dengan arsitektur MVC sederhana.
