@@ -1,0 +1,401 @@
+.withdrawal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  font-family: "Inter", sans-serif;
+}
+
+.withdrawal-card {
+  flex: 2;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.info-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  align-self: flex-start;
+}
+
+/* Balance Summary */
+.balance-summary {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.balance-icon {
+  width: 60px;
+  height: 60px;
+  background: #19a7ce;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: white;
+  font-size: 24px;
+}
+
+.balance-details {
+  flex: 1;
+}
+
+.balance-title {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.balance-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.balance-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.warning-text {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* Form Styles */
+.withdrawal-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.input-with-suffix {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-with-suffix input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+.input-with-suffix .input-suffix {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+}
+
+.amount-slider {
+  margin-top: 20px;
+}
+
+.amount-slider input[type="range"] {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+}
+
+.amount-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #3a59d1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Method Selector */
+.method-selector {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.method-option {
+  flex: 1;
+}
+
+.method-option input[type="radio"] {
+  display: none;
+}
+
+.method-option label {
+  display: block;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.method-option input[type="radio"]:checked + label {
+  border-color: #19a7ce;
+  background-color: #f0f4ff;
+}
+
+.method-option i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #3a59d1;
+}
+
+.method-option span {
+  font-weight: 500;
+  color: #333;
+}
+
+.method-detail {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.account-select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+/* Schedule Info */
+.schedule-info {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.schedule-info i {
+  color: #3a59d1;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.schedule-info span {
+  color: #333;
+  font-size: 14px;
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 30px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background: #19a7ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #19a7ce;
+}
+
+.btn-submit:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-submit i {
+  margin-right: 8px;
+}
+
+/* Info Card */
+.info-card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.info-card h3 i {
+  margin-right: 10px;
+  color: #19a7ce;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-list i {
+  color: #19a7ce;
+  margin-right: 10px;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.info-list span {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Link Change Method */
+.link-change-method {
+  display: inline-flex;
+  align-items: center;
+  color: #19a7ce;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.link-change-method i {
+  margin-right: 5px;
+}
+
+/* Alert Styles */
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.alert-success {
+  background: #ecfdf5;
+  border-left: 4px solid #059669;
+}
+
+.alert-error {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+}
+
+.alert i {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.alert-success i {
+  color: #059669;
+}
+
+.alert-error i {
+  color: #dc2626;
+}
+
+.alert div {
+  flex: 1;
+}
+
+.alert h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.alert p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.btn-close {
+  color: #999;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+/* Improved Back Button */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #f8f9fa;
+  color: #4f46e5;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  border: 1px solid #ddd;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.btn-back:hover {
+  background-color: #4f46e5;
+  border-color: #ced4da;
+  color: #fff;
+}
+
+.btn-back i {
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .withdrawal-container {
+    flex-direction: column;
+  }
+
+  .method-selector {
+    flex-direction: column;
+  }
+
+  .btn-back {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

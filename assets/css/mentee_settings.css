@@ -1,0 +1,182 @@
+/* Settings Page Styles */
+:root {
+  --primary: #19a7ce;
+  --primary-light: #afd3e2;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f5f9;
+}
+
+.settings-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.settings-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+.settings-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.account-info {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.info-item label {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.info-value {
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  color: #475569;
+}
+
+.password-form {
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 95%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+/* Alert Styles */
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-left: 4px solid #dc2626;
+}
+
+.alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border-left: 4px solid #10b981;
+}
+
+.alert i {
+  font-size: 1.25rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background: #19a7ce;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1485b1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .info-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .settings-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .settings-title {
+    font-size: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+}

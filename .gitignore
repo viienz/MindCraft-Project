@@ -1,0 +1,23 @@
+# Environment variables
+.env
+.env.local
+.env.production
+
+# API Keys and sensitive configs
+config/llm.php
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/

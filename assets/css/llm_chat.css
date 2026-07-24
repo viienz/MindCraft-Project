@@ -1,0 +1,556 @@
+/* llm_chat.css - Kode CSS Full yang sudah diperbaiki */
+
+/* Pastikan html dan body mengambil tinggi penuh viewport */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  /* Background global akan ditangani oleh .main-layout-wrapper */
+}
+
+/* --- New Layout Classes --- */
+.main-layout-wrapper {
+  display: flex;
+  height: 100vh; /* Pastikan ini diset agar tinggi total layout terkunci */
+  background-color: #f5f7fa; /* Warna latar belakang keseluruhan */
+}
+
+.sidebar {
+  width: 60px; /* Lebar sidebar sesuai gambar */
+  background-color: #19a7ce; /* Latar belakang sidebar putih */
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05); /* Bayangan kecil di sisi kanan */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  position: relative; /* Untuk footer */
+}
+
+.sidebar-header {
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  width: 35px; /* Ukuran logo */
+  height: 35px;
+  object-fit: contain;
+}
+
+.sidebar-nav {
+  flex-grow: 1; /* Agar navigasi mengambil ruang di tengah */
+  display: flex;
+  background-color: #19a7ce;
+  align-items: center; /* Pusatkan ikon secara vertikal */
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 25px; /* Jarak antar ikon */
+}
+
+/* Gaya untuk semua link ikon di sidebar-nav */
+.sidebar-nav a {
+  color: #fff; /* Warna ikon default */
+  font-size: 20px;
+  display: block;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  background-color: #e0f2f7; /* Hover background */
+  color: #19a7ce; /* Hover icon color */
+}
+
+.sidebar-footer {
+  /* Sudah diset relative di parent, jadi bisa atur positioning */
+  margin-top: auto; /* Dorong ke bawah */
+  padding-top: 15px; /* Jarak dari ikon di atasnya */
+}
+
+/* Gaya untuk tombol logout di sidebar */
+.sidebar-logout-button {
+  color: #ffff; /* Warna ikon default */
+  font-size: 20px;
+  display: block;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-logout-button:hover {
+  background-color: #ffe0e0; /* Hover background merah muda */
+  color: #dc3545; /* Warna merah saat hover */
+  transform: scale(1.1); /* Sedikit membesar */
+}
+
+.main-content-area {
+  flex-grow: 1; /* Ambil sisa lebar */
+  display: flex;
+  flex-direction: column; /* Penting untuk flex-grow anak-anaknya */
+  background-color: #ffffff; /* Latar belakang konten utama putih */
+  margin: 20px; /* Margin dari tepi wrapper */
+  border-radius: 12px; /* Sudut membulat */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Bayangan untuk kotak utama */
+  overflow: hidden; /* Penting agar konten tidak meluber dari sudut bulat */
+}
+
+.top-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid #eee;
+  background-color: #ffffff; /* Header bar background */
+  z-index: 10; /* Pastikan di atas */
+}
+
+.app-name {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.new-chat-button {
+  background: linear-gradient(45deg, #19a7ce); /* Gradient biru yang modern */
+  color: white;
+  border: none;
+  padding: 8px 18px; /* Sedikit lebih lebar */
+  border-radius: 25px; /* Lebih membulat */
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600; /* Lebih tebal */
+  text-decoration: none; /* Penting untuk tag <a> */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara ikon dan teks */
+  transition: all 0.3s ease; /* Transisi lebih halus untuk semua properti */
+  box-shadow: 0 4px 10px rgb(25, 167, 206); /* Bayangan awal */
+}
+
+.new-chat-button:hover {
+  background: linear-gradient(
+    45deg,
+    #19a7ce
+  ); /* Balikkan gradient saat hover */
+  box-shadow: 0 6px 15px rgb(25, 167, 206); /* Bayangan lebih besar dan terang */
+  transform: translateY(-2px); /* Efek naik sedikit */
+}
+
+/* --- Existing Chatbot Classes Adjusted --- */
+.chatbot-container {
+  display: flex;
+  flex-direction: column; /* Penting agar anak-anaknya (header, chat-box, form) berjejer vertikal */
+  flex-grow: 1; /* Biarkan ini, karena ini adalah wadah utama chat */
+  background-color: #ffffff; /* Pastikan latar belakang putih */
+}
+
+/* Chatbot header sekarang berada di dalam chat-box yang scrollable */
+/* Penyesuaian padding dan margin agar tetap terlihat rapi di awal chat */
+.chatbot-header {
+  background: none; /* Hapus gradient lama */
+  padding: 30px 40px 20px; /* Sesuaikan padding */
+  text-align: center;
+  color: #333; /* Warna teks lebih gelap */
+  box-shadow: none; /* Hapus bayangan */
+  border-radius: 0; /* Pastikan tidak ada border-radius yang mengganggu */
+  margin-bottom: 20px; /* Beri sedikit jarak dengan pesan pertama */
+  flex-shrink: 0; /* Penting agar header tidak mengecil */
+  /* Pastikan padding bawah cukup untuk memisahkan dari pesan pertama */
+}
+
+.chatbot-header h1 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 2.2em;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chatbot-header p {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 1.1em;
+}
+
+/* Gaya Baru untuk Quick Option Chips (Disesuaikan menjadi Kartu) */
+.quick-option-chips-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Jarak antar kartu */
+  flex-wrap: wrap;
+  margin-top: 25px; /* Jarak dari paragraf di atasnya */
+  padding: 0 40px; /* Padding agar tidak terlalu lebar */
+}
+
+.quick-option-chip {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  padding: 20px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.05em;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease, box-shadow 0.2s ease;
+  white-space: normal;
+  flex: 1;
+  min-width: 250px;
+  max-width: 32%;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quick-option-chip:hover {
+  background-color: #f0f8ff;
+  border-color: #afd3e2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Kunci utama ada di sini: .chat-box */
+.chat-box {
+  flex-grow: 1;
+  padding: 0 40px 20px; /* Sesuaikan padding: top=0, right/left=40px, bottom=20px */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Jarak antar pesan */
+  min-height: 0;
+  height: 0; /* Ini penting untuk memaksa flex item mengukur tingginya dari 0 */
+}
+
+/* Gaya untuk Konten Markdown di Pesan Bot */
+.message {
+  padding: 12px 18px;
+  margin: 0; /* Hapus margin vertical lama */
+  border-radius: 16px;
+  max-width: 75%;
+  line-height: 1.5;
+  word-wrap: break-word;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Bayangan pesan */
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #19a7ce; /* Warna biru muda yang lebih soft */
+  color: #ffff; /* Teks lebih gelap */
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #2d3436;
+  border: 1px solid #afd3e2; /* Border lebih soft */
+  margin-top: 10px; /* Beri jarak dari quick-options jika ada di atasnya */
+}
+
+.message.bot ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.message.bot li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.message.bot strong {
+  font-weight: 700;
+}
+
+/* Gaya untuk Indikator Loading */
+.message.bot.loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+}
+
+.loading-indicator .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-indicator .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-indicator .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+}
+
+.chat-form {
+  display: flex;
+  padding: 15px 40px; /* Sesuaikan padding */
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0; /* Pastikan form tidak mengecil saat ruang terbatas */
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 12px 20px; /* Sesuaikan padding */
+  border: 1px solid #afd3e2;
+  border-radius: 25px; /* Lebih membulat */
+  font-size: 15px;
+  outline: none;
+  background-color: #f9f9f9; /* Latar belakang input sedikit abu-abu */
+}
+
+.chat-submit {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #19a7ce; /* Warna biru konsisten */
+  border: none;
+  border-radius: 25px; /* Lebih membulat */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.chat-submit:hover {
+  background-color: #146c94;
+  transform: translateY(-1px);
+}
+
+/* Gaya untuk teks Disclaimer */
+.disclaimer-text {
+  font-size: 0.8em;
+  color: #888;
+  text-align: center;
+  padding: 10px 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
+  flex-shrink: 0; /* Pastikan disclaimer tidak mengecil */
+}
+
+.disclaimer-text a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.disclaimer-text a:hover {
+  text-decoration: underline;
+}
+
+/* --- Gaya untuk Modal Pop-up (Tidak Berubah Signifikan) --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.modal-content ul {
+  list-style: disc;
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+.modal-content ul li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.modal-content strong {
+  color: #333;
+}
+
+.close-button {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* --- Akhir Gaya untuk Modal Pop-up --- */
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+  .main-layout-wrapper {
+    flex-direction: column; /* Ubah ke kolom untuk mobile */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    flex-direction: row; /* Ikon dan logo sejajar horizontal */
+    justify-content: space-around;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Bayangan di bawah */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .sidebar-header {
+    margin-bottom: 0;
+  }
+  .sidebar-nav {
+    flex-grow: 0; /* Hapus flex-grow di mobile agar tidak mengambil ruang terlalu besar */
+  }
+  .sidebar-nav ul {
+    display: flex;
+    gap: 20px; /* Jarak antar item nav */
+  }
+  .sidebar-nav li {
+    margin-bottom: 0;
+  }
+  .sidebar-footer {
+    position: static; /* Kembali ke posisi normal */
+    margin-left: auto; /* Dorong ke kanan */
+    padding-top: 0; /* Hapus padding-top */
+  }
+
+  /* Gaya untuk tombol logout di sidebar (mobile) */
+  .sidebar-logout-button {
+    font-size: 18px; /* Sedikit lebih kecil */
+    padding: 6px;
+  }
+
+  .main-content-area {
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .top-header-bar {
+    padding: 10px 15px;
+  }
+
+  .app-name {
+    font-size: 1em;
+  }
+
+  .new-chat-button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .chatbot-header {
+    padding: 20px;
+  }
+
+  .chatbot-header h1 {
+    font-size: 1.8em;
+  }
+
+  .chatbot-header p {
+    font-size: 1em;
+  }
+
+  .quick-option-chips-container {
+    flex-direction: column; /* Jadi satu kolom di mobile */
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .quick-option-chip {
+    min-width: unset;
+    max-width: 100%; /* Lebar penuh */
+    padding: 15px 20px;
+    font-size: 1em;
+  }
+
+  .chat-box {
+    padding: 15px 20px;
+    min-height: 0; /* Tetap penting */
+    height: 0; /* Tetap penting */
+  }
+
+  .message {
+    max-width: 90%;
+    font-size: 14px;
+  }
+
+  .chat-form {
+    padding: 10px 20px;
+  }
+
+  .chat-input {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .chat-submit {
+    padding: 8px 15px;
+  }
+
+  .disclaimer-text {
+    padding: 8px 20px;
+  }
+}
